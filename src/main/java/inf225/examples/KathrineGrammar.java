@@ -19,12 +19,19 @@ public class KathrineGrammar {
 		KathrineGrammarLexer lexer = new KathrineGrammarLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		KathrineGrammarParser parser = new KathrineGrammarParser(tokens);
-		ParseTree tree = parser.program(); // parse; start at prog 
+		ParseTree tree = parser.program(); // parse; start at prog
+
+		PrintParseTree prettyTree = new PrintParseTree();
 		
 		KathrineEvalVisitor eval = new KathrineEvalVisitor();
+		System.out.println("The result is:");
 		eval.visit(tree);
-		
+		System.out.println();
+		System.out.println("Parse tree:");
+		System.out.println();
+		prettyTree.visit(tree);
 		//System.out.println(tree.toStringTree(parser)); // print tree as text
 	}
+
 	
 }
