@@ -52,14 +52,12 @@ public class PrintParseTree extends KathrineGrammarBaseVisitor<String> {
     @Override
     public String visitId(KathrineGrammarParser.IdContext ctx) {
         String id = ctx.ID().getText();
-        /*if ( memory.containsKey(id) )
-            return memory.get(id);*/
         System.out.println("id Visit");
         return id;
     }
 
     /** expr op=('*'|'/') expr */
-    @Override
+   /* @Override
     public String visitMulDiv(KathrineGrammarParser.MulDivContext ctx) {
         if ( ctx.op.getType() == KathrineGrammarParser.MUL ) {
             div(ctx, "<mul>", "</mul>");
@@ -67,7 +65,7 @@ public class PrintParseTree extends KathrineGrammarBaseVisitor<String> {
             div(ctx, "<div>", "</div>");
         }
         return "";
-    }
+    }*/
 
     /** expr op=('+'|'-') expr */
     @Override
@@ -91,7 +89,6 @@ public class PrintParseTree extends KathrineGrammarBaseVisitor<String> {
 
         addSpacing();
         System.out.println(addSubDone);
-        decreaseSpacing();
 
         return "";
     }
@@ -107,7 +104,6 @@ public class PrintParseTree extends KathrineGrammarBaseVisitor<String> {
 
         addSpacing();
         System.out.println(mulDivDone);
-        decreaseSpacing();
 
         return "";
     }
@@ -150,7 +146,6 @@ public class PrintParseTree extends KathrineGrammarBaseVisitor<String> {
         addSpacing();
         System.out.print("</parentheses>");
         System.out.println();
-        decreaseSpacing();
         return ""; // return child expr's value
     }
 
