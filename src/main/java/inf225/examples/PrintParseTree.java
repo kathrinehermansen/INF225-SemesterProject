@@ -57,7 +57,7 @@ public class PrintParseTree extends KathrineGrammarBaseVisitor<String> {
     }
 
     /** expr op=('*'|'/') expr */
-   /* @Override
+    @Override
     public String visitMulDiv(KathrineGrammarParser.MulDivContext ctx) {
         if ( ctx.op.getType() == KathrineGrammarParser.MUL ) {
             div(ctx, "<mul>", "</mul>");
@@ -65,7 +65,7 @@ public class PrintParseTree extends KathrineGrammarBaseVisitor<String> {
             div(ctx, "<div>", "</div>");
         }
         return "";
-    }*/
+    }
 
     /** expr op=('+'|'-') expr */
     @Override
